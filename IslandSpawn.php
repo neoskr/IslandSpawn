@@ -29,39 +29,18 @@ use ifteam\SimpleArea\database\area\AreaProvider;
 
 class IslandSpawn extends PluginBase implements Listener
 {
-    
-
-    private static $instance = null;
-	
 
 	public $prefix  = '§a§l[§fIsland§a] §r§f';
-
-
-    public function onLoad ()
-    {
-
-        self::$instance = $this;
-        
-    }
-
-
-    public static function getInstance ()
-    {
-
-        return self::$instance;
-        
-	}
     
-	
-    public function onEnable ()
-    {
+	public function onEnable ()
+	{
 
 		$this->getServer()->getPluginManager()->registerEvents ($this, $this);
 
 		$this->database = new Config ($this->getDataFolder() . 'islands_spawns.yml', Config::YAML);
 		$this->db       = $this->database->getAll();
 
-    }
+	}
 	
 	
 	public function onIslandCommand (PlayerCommandPreprocessEvent $event)
